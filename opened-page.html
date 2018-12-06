@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>Opened Page - rel="noopener" test | かもメモ</title>
+  <link rel="author" href="https://chaika.hatenablog.com/">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+  <h1>Opened Page</h1>
+  <div id="main" style="margin-left: 1em;">
+    <h2 class="success">S A F E </h2>
+    <p>
+      <i>Used <code>rel="noopener"</code></i>.<br>
+      <code>window.opener</code> object is <code>null</code>.<br>
+      This page can not access the parent page!
+    </p>
+  </div>
+<script>
+!function() {
+  const w = window,
+        $main = document.getElementById('main'),
+        opener = w.opener;
+  console.warn("window.opener", w.opener);
+  if( w.opener ) {
+    setTimeout(function() {
+      w.opener.location = 'http://example.com/';
+      console.info('Parent window move to another page!');
+    }, 100);
+    $main.innerHTML = `<h2 class="warn">Move The Parent Page!</h2><p><i>Without <code>rel="noopener"</code>!<i><br>
+      This new page can access the parent window via <code>window.opener</code>.<br>
+      And this page can move the parent URL using <code>window.opener.location = "example.com"</code>.</p>`;
+  }
+}();
+</script>
+</body>
+</html>

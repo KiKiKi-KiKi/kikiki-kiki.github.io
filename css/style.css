@@ -1,0 +1,9 @@
+body {margin: 1em;}
+a {color: #f12d23; text-decoration: none; transition: all .25s;}
+a:hover {color: #b5403c;}
+h1    {color: #3bbdcd;}
+.warn {color: #fccb28;}
+.info {color: #53c5af;}
+.success {color: #99d072;}
+code {padding: .2em .5em; background-color: #ddd; border-radius: 3px;}
+li {margin-bottom: .5em;}
